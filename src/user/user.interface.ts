@@ -7,4 +7,6 @@ export interface UserInterface extends Document {
   readonly lastName: string;
   readonly patronymic: string;
   readonly age: string;
+  isEmailVerified: boolean;
+  emailVerificationCode: string;
 }

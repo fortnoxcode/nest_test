@@ -13,5 +13,9 @@ export class User {
   patronymic: string;
   @Prop()
   age: number;
+  @Prop()
+  isEmailVerified: boolean;
+  @Prop()
+  emailVerificationCode: string;
 }
 export const UserSchema = SchemaFactory.createForClass(User);

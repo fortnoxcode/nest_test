@@ -2,11 +2,11 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ApiController } from './controllers/api.controller';
 import { VerifyController } from './controllers/verify.controller';
 import { UserSchema } from './schemas/user.schema';
-import { UserService } from './service/user/user.service';
-import { UserController } from './controllers/user.controller';
+import { UserService } from './user/user.service';
+import { UserController } from './user/user.controller';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -14,8 +14,9 @@ import { UserController } from './controllers/user.controller';
       dbName: 'mainDB',
     }),
     MongooseModule.forFeature([{ name: 'User', schema: UserSchema }]),
+    AuthModule,
   ],
-  controllers: [AppController, ApiController, VerifyController, UserController],
+  controllers: [AppController, VerifyController, UserController],
   providers: [AppService, UserService],
 })
 export class AppModule {}
