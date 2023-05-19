@@ -8,6 +8,10 @@ services:
     container_name: nest-server
     restart: always
     working_dir: /app
+    environment:
+      mongoDB: 
+      dbName: 
+      JWT_SECRET: 
   mongodb:
     image: mongo
     restart: always
