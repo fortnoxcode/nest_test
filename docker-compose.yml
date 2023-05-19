@@ -1,13 +1,13 @@
 version: '3.7'
 
 services:
-
-  mongo:
+  server:
+    build: .
+    ports:
+      - "3000:3000"
+    container_name: nest-server
+    restart: always
+    working_dir: /app
+  mongodb:
     image: mongo
     restart: always
-    ports:
-      - "27017:27017"
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: admin 
-      MONGO_INITDB_ROOT_PASSWORD: admin
-      MONGO_INITDB_DATABASE: mainDB

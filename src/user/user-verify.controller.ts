@@ -1,10 +1,10 @@
 import { Controller, Get, Param, Res } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { UserInterface } from '../user/user.interface';
+import { UserInterface } from './user.interface';
 
 @Controller('verify')
-export class VerifyController {
+export class UserVerifyController {
   constructor(@InjectModel('User') private userModel: Model<UserInterface>) {}
 
   @Get(':code')

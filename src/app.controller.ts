@@ -6,7 +6,7 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getApi(@Res() response): string {
+  getApiDocumentation(@Res() response): string {
     return response.redirect('/api');
   }
 }

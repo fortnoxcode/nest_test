@@ -8,8 +8,8 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { UserSchema } from 'src/schemas/user.schema';
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://admin:admin@localhost:27017/', {
-      dbName: 'mainDB',
+    MongooseModule.forRoot(process.env.mongoDB, {
+      dbName: process.env.dbName,
     }),
     MongooseModule.forFeature([{ name: 'User', schema: UserSchema }]),
     JwtModule.register({
